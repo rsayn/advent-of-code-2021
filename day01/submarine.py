@@ -62,7 +62,7 @@ def count_increases(measurements: List[int], rolling: int = 1) -> int:
 
 
 def read_input() -> List[int]:
-    with open('day1/input.txt', 'r') as inputfile:
+    with open('day01/input.txt', 'r') as inputfile:
         return list(map(int, inputfile.readlines()))
 
 if __name__ == '__main__':

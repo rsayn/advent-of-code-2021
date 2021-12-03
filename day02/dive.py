@@ -53,7 +53,7 @@ def apply_move_noaim(pos: Position, move: Move) -> Position:
 
 
 def read_input() -> List[Move]:
-    with open('day2/input.txt', 'r') as inputfile:
+    with open('day02/input.txt', 'r') as inputfile:
         return list(map(parse_move, inputfile.readlines()))
 
 
