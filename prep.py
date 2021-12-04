@@ -1,6 +1,7 @@
 """
 Yes, I'm that lazy.
 """
+import re
 import datetime
 import pathlib
 import urllib.request
@@ -20,8 +21,11 @@ def prep_today() -> None:
     readme = folder / 'README.md'
     folder.mkdir()
     inputfile.touch()
+    readme_text = get_readme_text()
     with open(readme, 'w') as readmefile:
-        readmefile.write(get_readme_text())
+        readmefile.write(readme_text)
+    python_file = folder / f'{get_readme_title(readme_text).lower().replace(" ", "_")}.py'
+    python_file.touch()
     print('Done.')
 
 
@@ -35,6 +39,12 @@ def get_readme_text() -> str:
     start = html_text.index(f'<h2>--- Day {now.day}')
     end = html_text.index('</article>\\n')
     return md(html_text[start:end].replace('\\n', '\n'))
+
+def get_readme_title(text: str) -> str:
+    """
+    Returns the readme title.
+    """
+    return re.match(r'--- Day [0-9]+: ([A-Za-z\s]+) ---', text)[1]
 
 def read_url(url: str) -> str:
     """Reads an URL."""
