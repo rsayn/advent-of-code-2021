@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "aoc"
+version = "0.1.0"
+description = "Advent Of Code utilities"
+authors = ["Riccardo Sayn <riccardo.sayn@gmail.com>"]
+readme = "README.md"
+
+
+[tool.poetry.scripts]
+aoc = "aoc.cli.app:app"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+markdownify = "^0.11.6"
+parse = "^1.19.0"
+typer = "^0.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

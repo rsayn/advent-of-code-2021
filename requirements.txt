@@ -1,2 +1,0 @@
-markdownify==0.10.0
-parse==1.19.0
