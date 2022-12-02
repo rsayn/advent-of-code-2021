@@ -20,7 +20,7 @@ def prep_today():
 
     create_readme(folder, aoc_puzzle)
     create_python_file(folder, aoc_puzzle)
-    create_input_file(folder)
+    create_input_files(folder)
 
     print('Done.')
 
@@ -71,11 +71,15 @@ def create_readme(folder: Path, aoc_puzzle: str):
 
 def create_python_file(folder: Path, aoc_puzzle: str):
     filename = get_puzzle_title(aoc_puzzle).lower().replace(" ", "_")
-    Path(folder, f"{filename}.py").touch()
+    python_file = Path(folder, f"{filename}.py")
+    python_file.touch()
+    template_file = Path(__file__).parent.parent / "templates" / "day_template.py"
+    python_file.write_text(template_file.read_text())
 
 
-def create_input_file(folder: Path):
+def create_input_files(folder: Path):
     Path(folder, "input.txt").touch()
+    Path(folder, "sample_input.txt").touch()
 
 
 def get_puzzle_title(puzzle_text: str) -> str:

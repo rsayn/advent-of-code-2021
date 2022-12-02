@@ -10,3 +10,7 @@ def prep():
     Prepares for a new day of AOC.
     """
     prep_today()
+
+@app.command()
+def version():
+    typer.echo("AOC 2022")
