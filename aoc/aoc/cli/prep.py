@@ -64,7 +64,7 @@ def read_url(url: str) -> str:
 
 
 def create_readme(folder: Path, aoc_puzzle: str):
-    readme_path = Path(folder, "README.txt")
+    readme_path = Path(folder, "README.md")
     readme_path.touch()
     readme_path.write_text(aoc_puzzle)
 
