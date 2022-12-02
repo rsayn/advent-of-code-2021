@@ -77,7 +77,7 @@ def create_python_file(folder: Path, aoc_puzzle: str):
     python_file.write_text(template_file.read_text())
 
 
-def create_input_files(folder: Path):
+def create_input_files(folder: Path, year: int, day: int):
     Path(folder, "input.txt").touch()
     Path(folder, "sample_input.txt").touch()
 
@@ -87,11 +87,3 @@ def get_puzzle_title(puzzle_text: str) -> str:
     Returns the puzzle title.
     """
     return re.match(r'--- Day [0-9]+: ([A-Za-z\s]+) ---', puzzle_text)[1]
-
-
-
-
-
-
-class FromTheFutureException(Exception):
-    pass
