@@ -77,7 +77,7 @@ def create_python_file(folder: Path, aoc_puzzle: str):
     python_file.write_text(template_file.read_text())
 
 
-def create_input_files(folder: Path, year: int, day: int):
+def create_input_files(folder: Path):
     Path(folder, "input.txt").touch()
     Path(folder, "sample_input.txt").touch()
 
