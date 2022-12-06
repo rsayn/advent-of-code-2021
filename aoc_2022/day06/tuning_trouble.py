@@ -18,7 +18,8 @@ def find_start_of_message(buffer: str):
     return find_first_unique_sequence_in_buffer(buffer, 14)
 
 def find_first_unique_sequence_in_buffer(buffer: str, sequence_length: int) -> int:
-    marker = first(windowed(buffer, sequence_length), lambda window: len(set(window)) == sequence_length)
+    windows = windowed(buffer, sequence_length)
+    marker = first(windows, lambda window: len(set(window)) == sequence_length)
     return buffer.index("".join(marker)) + len(marker)
 
 def first(iterable: Iterable[ElemT], condition: Callable[[ElemT], bool]) -> ElemT:
