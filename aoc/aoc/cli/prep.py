@@ -86,4 +86,4 @@ def get_puzzle_title(puzzle_text: str) -> str:
     """
     Returns the puzzle title.
     """
-    return re.match(r'--- Day [0-9]+: ([A-Za-z\s]+) ---', puzzle_text)[1]
+    return re.match(r'--- Day [0-9]+: ([A-Za-z\s-]+) ---', puzzle_text)[1]
